@@ -16,18 +16,11 @@ public class AccountLoginTest extends TestBase {
 	}
 
 	@Test
-	public void verifyLogin() {
-		AccountLoginPage accountLoginPage = new AccountLoginPage();
-		accountLoginPage.login("iron.man@gmail.com", "avengers.com");
-		Assert.assertEquals(driver.getTitle(), "My Account", "User is not signed in");
-	}
-
-	@Test
 	public void verifyAlertBannerForInvalidLoginCredentials() {
 		AccountLoginPage accountLoginPage = new AccountLoginPage();
-		accountLoginPage.login("iron.man@gmail.com", "avengers.com");
+		accountLoginPage.login("iron.man@gmail.com", "a-vengers.com");
 		Assert.assertEquals(accountLoginPage.getTextFromAlertBanner(),
-				" Warning: No match for E-Mail Address and/or Password.","Alert text doesn't match");
+				"Warning: No match for E-Mail Address and/or Password.","Alert text doesn't match");
 	}
 
 	@AfterMethod

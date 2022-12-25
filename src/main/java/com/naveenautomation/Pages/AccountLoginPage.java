@@ -1,20 +1,31 @@
 package com.naveenautomation.Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import com.naveenautomation.Base.TestBase;
 
 public class AccountLoginPage extends TestBase {
 
 	public AccountLoginPage() {
-
+		PageFactory.initElements(driver, this);
 	}
 
-	WebElement emailInputField = driver.findElement(By.cssSelector("form div.form-group:first-of-type input"));
-	WebElement passwordInputField = driver.findElement(By.cssSelector("form div.form-group:last-of-type input"));
-	WebElement loginBtn = driver.findElement(By.cssSelector("input[type='submit']"));
-	WebElement alertBanner = driver.findElement(By.cssSelector("div.alert"));
+	@FindBy(css = "form div.form-group:first-of-type input")
+	WebElement emailInputField;
+
+	@FindBy(css = "form div.form-group:last-of-type input")
+	WebElement passwordInputField;
+
+	@FindBy(css = "input[type='submit']")
+	WebElement loginBtn;
+
+	@FindBy(css = "div.alert")
+	WebElement alertBanner;
+
+	@FindBy(xpath = "//a[text()='Continue']")
+	WebElement continueBtn;
 
 	public void enterEmailInputField(String email) {
 		emailInputField.sendKeys(email);
@@ -24,14 +35,21 @@ public class AccountLoginPage extends TestBase {
 		passwordInputField.sendKeys(password);
 	}
 
-	public void login(String email, String password) {
+	public MyAccountPage login(String email, String password) {
 		enterEmailInputField(email);
 		enterPasswordInputField(password);
 		loginBtn.submit();
+		return new MyAccountPage();
+
 	}
 
 	public String getTextFromAlertBanner() {
 		return alertBanner.getText();
+	}
+
+	public RegisterAccountPage clickContinueButton() {
+		continueBtn.click();
+		return new RegisterAccountPage();
 	}
 
 }
