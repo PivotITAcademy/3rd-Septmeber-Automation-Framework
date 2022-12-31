@@ -20,6 +20,9 @@ public class MyAccountPage extends TestBase {
 
 	@FindBy(css = "div.alert-success")
 	WebElement passwordChangesSuccessBanner;
+	
+	@FindBy(css="div.list-group a:nth-of-type(6)")
+	WebElement orderHistoryLink;
 
 	public String getMyAccountText() {
 		return myAccountText.getText();
@@ -32,5 +35,10 @@ public class MyAccountPage extends TestBase {
 
 	public String getPasswordChangeSuccessMessage() {
 		return passwordChangesSuccessBanner.getText();
+	}
+	
+	public OrderHistoryPage clickOrderHistoryLink() {
+		orderHistoryLink.click();
+		return new OrderHistoryPage();
 	}
 }
