@@ -15,12 +15,17 @@ public class AccountLoginTest extends TestBase {
 		launchBrowser();
 	}
 
-	@Test
+	@Test()
 	public void verifyAlertBannerForInvalidLoginCredentials() {
 		AccountLoginPage accountLoginPage = new AccountLoginPage();
 		accountLoginPage.login("iron.man@gmail.com", "a-vengers.com");
 		Assert.assertEquals(accountLoginPage.getTextFromAlertBanner(),
 				"Warning: No match for E-Mail Address and/or Password.","Alert text doesn't match");
+	}
+	
+	@Test
+	public void testSomething() {
+		Assert.assertTrue(false);
 	}
 
 	@AfterMethod
