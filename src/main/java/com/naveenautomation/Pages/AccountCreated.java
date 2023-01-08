@@ -18,5 +18,11 @@ public class AccountCreated extends TestBase {
 	public String getSuccessAccountCreatedTxt() {
 		return accountCreationSuccessTxt.getText();
 	}
+	
+	
+	public static class RegisterAccountText{
+		
+		public static final String ACCOUNT_CREATED_TXT="Your Account Has Been Created!";
+	}
 
 }

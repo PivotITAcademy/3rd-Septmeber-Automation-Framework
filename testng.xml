@@ -6,12 +6,20 @@
 	<listeners>
 		<listener
 			class-name="com.naveenautomation.Listeners.CustomListener" />
+		<listener
+			class-name="com.naveenautomation.Reports.ExtentReportListener" />
+		<listener
+			class-name="com.naveenautomation.Utils.TransformerForRetry" />
+
 	</listeners>
 	<test thread-count="5" name="Test">
 
 		<classes>
 			<class name="com.naveenautomation.tests.AccountLoginTest" />
 			<class name="com.naveenautomation.tests.MyAccountTest" />
+			<class name="com.naveenautomation.tests.AccountCreatedTest" />
+			<class name="com.naveenautomation.tests.ChangePasswordTest" />
+			<class name="com.naveenautomation.tests.OrderHistoryTest" />
 
 		</classes>
 	</test> <!-- Test -->

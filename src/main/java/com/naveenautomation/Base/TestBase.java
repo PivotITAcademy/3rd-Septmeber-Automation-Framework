@@ -18,7 +18,7 @@ public class TestBase {
 	public static WebDriver driver;
 	public Browsers DEFAULT_BROWSER = Browsers.GOOGLE_CHROME;
 	public static WebdriverEvents events=new WebdriverEvents();
-	public EventFiringWebDriver eventFiringWebDriver=new EventFiringWebDriver(driver);
+	public EventFiringWebDriver eventFiringWebDriver;
 
 	public void launchBrowser() {
 
@@ -42,7 +42,7 @@ public class TestBase {
 			System.out.println("Not a valid browser");
 			break;
 		}
-		
+		eventFiringWebDriver=new EventFiringWebDriver(driver);
 		eventFiringWebDriver.register(events);
 		driver=eventFiringWebDriver;
 

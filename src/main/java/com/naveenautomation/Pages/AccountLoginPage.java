@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.naveenautomation.Base.TestBase;
 
 public class AccountLoginPage extends TestBase {
-
+	
 	public AccountLoginPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -36,6 +36,7 @@ public class AccountLoginPage extends TestBase {
 	}
 
 	public MyAccountPage login(String email, String password) {
+		
 		enterEmailInputField(email);
 		enterPasswordInputField(password);
 		loginBtn.submit();
