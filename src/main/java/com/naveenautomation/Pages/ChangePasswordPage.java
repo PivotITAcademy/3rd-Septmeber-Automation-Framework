@@ -1,31 +1,41 @@
 package com.naveenautomation.Pages;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
-import com.naveenautomation.Base.TestBase;
+import com.naveenautomation.Browsers.ProxyDriver;
 
-public class ChangePasswordPage extends TestBase {
+public class ChangePasswordPage extends Page {
 
-	public ChangePasswordPage() {
-		PageFactory.initElements(driver, this);
+	
+	private static final String PAGE_URL="/password";
+	public ChangePasswordPage(WebDriver wd, boolean waitForPageToLoad) {
+		super(wd, waitForPageToLoad);
 	}
 
-	@FindBy(id = "input-password")
-	WebElement password;
-
-	@FindBy(id = "input-confirm")
-	WebElement confirmPwd;
-
-	@FindBy(xpath = "//input[@value='Continue']")
-	WebElement continueBtn;
+	private static final By password = By.id("input-password");
+	private static final By confirmPwd = By.id("input-confirm");;
+	private static final By continueBtn = By.xpath("//input[@value='Continue']");
 
 	public MyAccountPage updatePassword(String pwd, String cPwd) {
-		password.sendKeys(pwd);
-		confirmPwd.sendKeys(cPwd);
-		continueBtn.submit();
-		return new MyAccountPage();
+
+		((ProxyDriver) wd).sendKeys(password, pwd);
+		((ProxyDriver) wd).sendKeys(confirmPwd, cPwd);
+		((ProxyDriver) wd).submit(continueBtn);
+		return new MyAccountPage(wd, true);
+	}
+
+	@Override
+	protected void isLoaded() {
+
+		if(!urlContains(wd.getCurrentUrl())) {
+			throw new Error();
+		}
+	}
+	
+	@Override
+	protected String getPageUrl() {
+		return getDomain() + PAGE_URL;
 	}
 
 }

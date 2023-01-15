@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.naveenautomation.Base.TestBase;
-import com.naveenautomation.Pages.AccountCreated;
+import com.naveenautomation.Pages.AccountCreatedPage;
 import com.naveenautomation.Pages.AccountLoginPage;
 import com.naveenautomation.Pages.RegisterAccountPage;
 
@@ -17,7 +17,7 @@ public class AccountCreatedTest extends TestBase {
 	@BeforeMethod
 	public void setUp() {
 		launchBrowser();
-		accountLoginPage = new AccountLoginPage();
+		accountLoginPage = new AccountLoginPage(driver,true).get();
 	}
 
 	@Test
@@ -25,10 +25,10 @@ public class AccountCreatedTest extends TestBase {
 
 		RegisterAccountPage registerAccountPage = accountLoginPage.clickContinueButton();
 
-		AccountCreated accountCreated = registerAccountPage.signUp("Jasmeet", "Kaur", "Jassi1234@gmail.com",
+		AccountCreatedPage accountCreated = registerAccountPage.signUp("Jasmeet", "Kaur", "Jassi1234@gmail.com",
 				"6472152994", "Password1", "Password1");
 
-		Assert.assertEquals(accountCreated.getSuccessAccountCreatedTxt(), AccountCreated.RegisterAccountText.ACCOUNT_CREATED_TXT,
+		Assert.assertEquals(accountCreated.getSuccessAccountCreatedTxt(), AccountCreatedPage.RegisterAccountText.ACCOUNT_CREATED_TXT,
 				"Account not created");
 
 	}

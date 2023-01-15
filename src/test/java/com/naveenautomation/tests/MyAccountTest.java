@@ -18,13 +18,13 @@ public class MyAccountTest extends TestBase {
 	@BeforeMethod
 	public void setUp() {
 		launchBrowser();
-		accountLoginPage = new AccountLoginPage();
+		accountLoginPage = new AccountLoginPage(driver,true).get();
 		myAccountPage = accountLoginPage.login("iron.man@gmail.com", "Password2");
 	}
 
 	@Test
 	public void verifyLogin() {
-		Assert.assertEquals(myAccountPage.getMyAccountText(), "My Account", "Login Failed");
+		Assert.assertEquals(myAccountPage.getMyAccountText(), "My Account1", "Login Failed");
 	}
 
 	@Test

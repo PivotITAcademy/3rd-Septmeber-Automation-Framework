@@ -3,17 +3,25 @@ package com.naveenautomation.Pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.naveenautomation.Base.TestBase;
 
-public class OrderHistoryPage extends TestBase {
+public class OrderHistoryPage extends Page {
+
+	private static final String PAGE_URL="/order";
+	
+	public OrderHistoryPage(WebDriver wd, boolean waitForPageToLoad) {
+		super(wd, waitForPageToLoad);
+		// TODO Auto-generated constructor stub
+	}
 
 	public WebElement getElementFromTheTable(String orderID, OrderHistory column) {
 
 		int columnIndex = getIndexForColumn(column);
 
-		List<WebElement> rowsInTable = driver
+		List<WebElement> rowsInTable = wd
 				.findElements(By.cssSelector("table[class='table table-bordered table-hover'] tbody tr"));
 
 		for (int i = 0; i < rowsInTable.size(); i++) {
@@ -30,7 +38,7 @@ public class OrderHistoryPage extends TestBase {
 	}
 
 	public int getIndexForColumn(OrderHistory column) {
-		List<WebElement> headers = driver
+		List<WebElement> headers = wd
 				.findElements(By.cssSelector("table[class='table table-bordered table-hover'] thead tr td"));
 
 		for (WebElement webElement : headers) {
@@ -62,6 +70,19 @@ public class OrderHistoryPage extends TestBase {
 		public String getName() {
 			return name;
 		}
+	}
+
+	@Override
+	protected void isLoaded() {
+
+		if(!urlContains(wd.getCurrentUrl())) {
+			throw new Error();
+		}
+	}
+	
+	@Override
+	protected String getPageUrl() {
+		return getDomain() + PAGE_URL;
 	}
 
 }

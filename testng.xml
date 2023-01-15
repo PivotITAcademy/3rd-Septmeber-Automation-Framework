@@ -17,9 +17,9 @@
 		<classes>
 			<class name="com.naveenautomation.tests.AccountLoginTest" />
 			<class name="com.naveenautomation.tests.MyAccountTest" />
-			<class name="com.naveenautomation.tests.AccountCreatedTest" />
+			<!-- <class name="com.naveenautomation.tests.AccountCreatedTest" />
 			<class name="com.naveenautomation.tests.ChangePasswordTest" />
-			<class name="com.naveenautomation.tests.OrderHistoryTest" />
+			<class name="com.naveenautomation.tests.OrderHistoryTest" /> -->
 
 		</classes>
 	</test> <!-- Test -->

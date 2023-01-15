@@ -21,7 +21,7 @@ public class AccountLoginTest extends TestBase {
 
 	@Test(dataProvider = "LoginDataProvider")
 	public void verifyAlertBannerForInvalidLoginCredentials(String userName, String password) {
-		AccountLoginPage accountLoginPage = new AccountLoginPage();
+		AccountLoginPage accountLoginPage = new AccountLoginPage(driver,true).get();
 		accountLoginPage.login(userName, password);
 		Assert.assertEquals(accountLoginPage.getTextFromAlertBanner(),
 				"Warning: No match for E-Mail Address and/or Password.", "Alert text doesn't match");

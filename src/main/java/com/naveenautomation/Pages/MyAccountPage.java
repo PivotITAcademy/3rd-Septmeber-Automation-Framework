@@ -1,44 +1,55 @@
 package com.naveenautomation.Pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.naveenautomation.Base.TestBase;
+import com.naveenautomation.Browsers.ProxyDriver;
 
-public class MyAccountPage extends TestBase {
+public class MyAccountPage extends Page {
 
-	public MyAccountPage() {
-		PageFactory.initElements(driver, this);
+	private static final String PAGE_URL="/account";
+
+	public MyAccountPage(WebDriver wd, boolean waitForPageToLoad) {
+		super(wd, waitForPageToLoad);
 	}
 
-	@FindBy(xpath = "//h2[text()='My Account']")
-	WebElement myAccountText;
-
-	@FindBy(css = "#column-right a:nth-of-type(3)")
-	WebElement changePasswordLink;
-
-	@FindBy(css = "div.alert-success")
-	WebElement passwordChangesSuccessBanner;
-	
-	@FindBy(css="div.list-group a:nth-of-type(6)")
-	WebElement orderHistoryLink;
+	private static final By  myAccountText=By.xpath("//h2[text()='My Account']");
+	private static final By changePasswordLink=By.cssSelector("#column-right a:nth-of-type(3)");
+	private static final By passwordChangesSuccessBanner=By.cssSelector("div.alert-success");
+	private static final By orderHistoryLink=By.cssSelector("div.list-group a:nth-of-type(6)");
 
 	public String getMyAccountText() {
-		return myAccountText.getText();
+		return ((ProxyDriver)wd).getText(myAccountText, 10);
 	}
 
 	public ChangePasswordPage clickChangePassword() {
-		changePasswordLink.click();
-		return new ChangePasswordPage();
+		((ProxyDriver)wd).click(changePasswordLink);
+		return new ChangePasswordPage(wd,true);
 	}
 
 	public String getPasswordChangeSuccessMessage() {
-		return passwordChangesSuccessBanner.getText();
+		return ((ProxyDriver)wd).getText(passwordChangesSuccessBanner, 10);
 	}
 	
 	public OrderHistoryPage clickOrderHistoryLink() {
-		orderHistoryLink.click();
-		return new OrderHistoryPage();
+		((ProxyDriver)wd).click(orderHistoryLink);
+		return new OrderHistoryPage(wd,true);
+	}
+
+	@Override
+	protected void isLoaded() {
+
+		if(!urlContains(wd.getCurrentUrl())) {
+			throw new Error();
+		}
+	}
+	
+	@Override
+	protected String getPageUrl() {
+		return getDomain() + PAGE_URL;
 	}
 }

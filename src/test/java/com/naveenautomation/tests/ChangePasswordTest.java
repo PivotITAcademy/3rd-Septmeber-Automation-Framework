@@ -15,7 +15,7 @@ public class ChangePasswordTest extends TestBase {
 	@BeforeMethod
 	public void setUp() {
 		launchBrowser();
-		accountLoginPage = new AccountLoginPage();
+		accountLoginPage = new AccountLoginPage(driver,true).get();
 	}
 
 	
