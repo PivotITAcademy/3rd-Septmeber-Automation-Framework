@@ -21,7 +21,7 @@ public class TestBase {
 	public Browsers DEFAULT_BROWSER = Browsers.GOOGLE_CHROME;
 	public static WebdriverEvents events=new WebdriverEvents();
 	public EventFiringWebDriver eventFiringWebDriver;
-
+  
 	public void launchBrowser() {
 
 		switch (DEFAULT_BROWSER) {

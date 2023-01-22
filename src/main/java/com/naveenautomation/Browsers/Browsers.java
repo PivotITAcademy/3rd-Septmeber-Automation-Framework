@@ -2,6 +2,7 @@ package com.naveenautomation.Browsers;
 
 public enum Browsers {
 	
+	//Enum class for  browser
 	GOOGLE_CHROME("chrome"),
 	EDGE("edge"),
 	FIREFOX("firefox");

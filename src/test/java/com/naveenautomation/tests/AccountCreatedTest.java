@@ -11,7 +11,7 @@ import com.naveenautomation.Pages.AccountLoginPage;
 import com.naveenautomation.Pages.RegisterAccountPage;
 
 public class AccountCreatedTest extends TestBase {
-
+	//this is account class
 	AccountLoginPage accountLoginPage;
 
 	@BeforeMethod
