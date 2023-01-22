@@ -24,7 +24,7 @@ public class MyAccountTest extends TestBase {
 
 	@Test
 	public void verifyLogin() {
-		Assert.assertEquals(myAccountPage.getMyAccountText(), "My Account1", "Login Failed");
+		Assert.assertEquals(myAccountPage.getMyAccountText(), "My Account", "Login Failed");
 	}
 
 	@Test

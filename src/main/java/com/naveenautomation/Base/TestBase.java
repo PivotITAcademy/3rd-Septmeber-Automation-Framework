@@ -3,6 +3,7 @@ package com.naveenautomation.Base;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -17,11 +18,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 
+	
+	//Testing Webhook
 	public static WebDriver driver;
-	public Browsers DEFAULT_BROWSER = Browsers.GOOGLE_CHROME;
-	public static WebdriverEvents events=new WebdriverEvents();
+	public Browsers DEFAULT_BROWSER = getBrowser();
+	public static WebdriverEvents events = new WebdriverEvents();
 	public EventFiringWebDriver eventFiringWebDriver;
-  
+
 	public void launchBrowser() {
 
 		switch (DEFAULT_BROWSER) {
@@ -59,7 +62,19 @@ public class TestBase {
 
 	public void quitBrowser() {
 		// closing the browser
-		driver.close();
+		try {
+			driver.close();
+		} catch (WebDriverException e) {
+
+		} finally {
+			driver.quit();
+		}
+
+	}
+	
+	public Browsers getBrowser() {
+		String browserName=System.getProperty(System.getProperty("browser"));
+		return Browsers.getBrowserByName(browserName);
 	}
 
 }
