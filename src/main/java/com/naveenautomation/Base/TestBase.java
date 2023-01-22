@@ -21,7 +21,7 @@ public class TestBase {
 	
 	//Testing Webhook
 	public static WebDriver driver;
-	public Browsers DEFAULT_BROWSER = getBrowser();
+	public Browsers DEFAULT_BROWSER = Browsers.GOOGLE_CHROME;
 	public static WebdriverEvents events = new WebdriverEvents();
 	public EventFiringWebDriver eventFiringWebDriver;
 
@@ -73,8 +73,8 @@ public class TestBase {
 	}
 	
 	public Browsers getBrowser() {
-		String browserName=System.getProperty(System.getProperty("browser"));
-		return Browsers.getBrowserByName(browserName);
+		//String browserName=System.getProperty(System.getProperty("browser"));
+		return Browsers.getBrowserByName("chrome");
 	}
 
 }
