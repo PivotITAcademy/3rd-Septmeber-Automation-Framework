@@ -8,5 +8,7 @@
 .idea
 .project
 *.iml
-*.class
 /bin/
+*.class
+
+
