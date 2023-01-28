@@ -19,7 +19,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class TestBase {
 
 	
-	//Testing Webhook for Class
+
+/*
+ * This is a base class
+ * 
+ */
+
 	public static WebDriver driver;
 	public Browsers DEFAULT_BROWSER = Browsers.GOOGLE_CHROME;
 	public static WebdriverEvents events = new WebdriverEvents();
