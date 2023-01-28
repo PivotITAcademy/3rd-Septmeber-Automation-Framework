@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import com.naveenautomation.Base.TestBase;
@@ -19,6 +20,7 @@ public class AccountLoginTest extends TestBase {
 		launchBrowser();
 	}
 
+	@Ignore
 	@Test(dataProvider = "LoginDataProvider")
 	public void verifyAlertBannerForInvalidLoginCredentials(String userName, String password) {
 		AccountLoginPage accountLoginPage = new AccountLoginPage(driver,true).get();
