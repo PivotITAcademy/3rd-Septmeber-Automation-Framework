@@ -20,10 +20,11 @@ public class TestBase {
 
 	
 	//Testing Webhook for Class
-	public static WebDriver driver;
-	public Browsers DEFAULT_BROWSER = Browsers.GOOGLE_CHROME;
-	public static WebdriverEvents events = new WebdriverEvents();
-	public EventFiringWebDriver eventFiringWebDriver;
+	
+	  public static WebDriver driver; public Browsers DEFAULT_BROWSER =
+	  Browsers.GOOGLE_CHROME; public static WebdriverEvents events = new
+	  WebdriverEvents(); public EventFiringWebDriver eventFiringWebDriver;
+	 
 
 	public void launchBrowser() {
 

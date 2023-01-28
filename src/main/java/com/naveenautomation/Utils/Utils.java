@@ -15,6 +15,9 @@ import org.openqa.selenium.WebDriver;
 import com.naveenautomation.Base.TestBase;
 
 public class Utils extends TestBase {
+/*
+ * This is a utils class	
+ */
 
 	public static int getRandomInteger(int length) {
 		Random random = new Random();
