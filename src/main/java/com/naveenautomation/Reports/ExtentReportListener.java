@@ -21,6 +21,7 @@ public class ExtentReportListener extends TestListenerAdapter {
 	public ExtentTest test;
 	public ExtentReports extent;
 
+	//This is a extent report class
 	@Override
 	public void onStart(ITestContext testContext) {
 		// Time on which report was generated
