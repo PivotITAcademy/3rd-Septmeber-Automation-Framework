@@ -10,12 +10,11 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 
 import com.naveenautomation.Base.TestBase;
 
 public class Utils extends TestBase {
-
+	/* This is util class */
 	public static int getRandomInteger(int length) {
 		Random random = new Random();
 		return random.nextInt(length);
