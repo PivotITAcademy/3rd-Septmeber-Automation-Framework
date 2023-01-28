@@ -8,7 +8,7 @@ import com.naveenautomation.Browsers.ProxyDriver;
 public class ChangePasswordPage extends Page {
 
 	
-	private static final String PAGE_URL="/password";
+	private static final String PAGE_URL="account/password";
 	public ChangePasswordPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
 	}

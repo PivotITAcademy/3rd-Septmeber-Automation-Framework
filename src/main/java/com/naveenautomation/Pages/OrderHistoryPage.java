@@ -10,7 +10,7 @@ import com.naveenautomation.Base.TestBase;
 
 public class OrderHistoryPage extends Page {
 
-	private static final String PAGE_URL="/order";
+	private static final String PAGE_URL="account/order";
 	
 	public OrderHistoryPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);

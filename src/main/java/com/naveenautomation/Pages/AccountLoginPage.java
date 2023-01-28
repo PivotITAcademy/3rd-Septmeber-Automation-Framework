@@ -11,7 +11,7 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class AccountLoginPage extends Page {
 
-	private static final String PAGE_URL = "/login";
+	private static final String PAGE_URL = "account/login";
 
 	public AccountLoginPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);

@@ -11,7 +11,7 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class RegisterAccountPage extends Page {
 
-	private static final String PAGE_URL = "/register";
+	private static final String PAGE_URL = "account/register";
 
 	public RegisterAccountPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);

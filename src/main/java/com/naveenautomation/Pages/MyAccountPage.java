@@ -11,7 +11,7 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class MyAccountPage extends Page {
 
-	private static final String PAGE_URL="/account";
+	private static final String PAGE_URL="account/account";
 
 	public MyAccountPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
@@ -21,6 +21,7 @@ public class MyAccountPage extends Page {
 	private static final By changePasswordLink=By.cssSelector("#column-right a:nth-of-type(3)");
 	private static final By passwordChangesSuccessBanner=By.cssSelector("div.alert-success");
 	private static final By orderHistoryLink=By.cssSelector("div.list-group a:nth-of-type(6)");
+	private static final By cameraLink = By.cssSelector("div.navbar-collapse ul>li:nth-of-type(7) a");
 
 	public String getMyAccountText() {
 		return ((ProxyDriver)wd).getText(myAccountText, 10);
@@ -38,6 +39,11 @@ public class MyAccountPage extends Page {
 	public OrderHistoryPage clickOrderHistoryLink() {
 		((ProxyDriver)wd).click(orderHistoryLink);
 		return new OrderHistoryPage(wd,true);
+	}
+	
+	public CamerasPage clickCameraLink() {
+		((ProxyDriver)wd).click(cameraLink);
+		return new CamerasPage(wd,true);
 	}
 
 	@Override

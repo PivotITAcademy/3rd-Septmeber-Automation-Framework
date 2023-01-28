@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class Page extends GeneralPage{
 
-	private static final String URL="https://naveenautomationlabs.com/opencart/index.php?route=account";
+	private static final String URL="https://naveenautomationlabs.com/opencart/index.php?route=";
 	
 	public Page(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);

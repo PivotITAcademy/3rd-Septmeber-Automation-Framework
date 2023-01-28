@@ -19,7 +19,7 @@ public class MyAccountTest extends TestBase {
 	@BeforeMethod
 	public void setUp() {
 		launchBrowser();
-		accountLoginPage = new AccountLoginPage(driver,true).get();
+		accountLoginPage = new AccountLoginPage(driver, true).get();
 		myAccountPage = accountLoginPage.login("iron.man@gmail.com", "Password2");
 	}
 
