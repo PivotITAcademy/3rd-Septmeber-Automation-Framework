@@ -17,7 +17,8 @@ public class MyAccountPage extends Page {
 	private static final By changePasswordLink=By.cssSelector("#column-right a:nth-of-type(3)");
 	private static final By passwordChangesSuccessBanner=By.cssSelector("div.alert-success");
 	private static final By orderHistoryLink=By.cssSelector("div.list-group a:nth-of-type(6)");
-
+	private static final By addToReturnLink=By.xpath("(//a[text()='Returns']) [2]");
+	private static final By reasonForReturn=By.xpath("//input[@value='3']");
 	public String getMyAccountText() {
 		return ((ProxyDriver)wd).getText(myAccountText, 10);
 	}
@@ -34,6 +35,10 @@ public class MyAccountPage extends Page {
 	public OrderHistoryPage clickOrderHistoryLink() {
 		((ProxyDriver)wd).click(orderHistoryLink);
 		return new OrderHistoryPage(wd,true);
+	}
+	public ProductReturnsPage clickaddToReturnLink() {
+		((ProxyDriver)wd).click(addToReturnLink);
+		return new ProductReturnsPage(wd,true);
 	}
 
 	@Override
