@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.naveenautomation.Base.TestBase;
-
 public class OrderHistoryPage extends Page {
 
 	private static final String PAGE_URL="/order";
