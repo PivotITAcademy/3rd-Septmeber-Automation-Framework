@@ -1,0 +1,10 @@
+/target/
+/test-output/
+/Logs/
+*.classpath
+/Extent Report/
+/FailedTestScreenShots/
+.settings
+.idea
+.project
+*.iml
