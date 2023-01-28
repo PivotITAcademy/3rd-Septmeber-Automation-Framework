@@ -24,7 +24,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo'Testing....'
-               bat "mvn test -DskipTests=true"
+               bat "mvn test"
             }
         
     }
