@@ -2,11 +2,7 @@ package com.naveenautomation.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-import com.naveenautomation.Base.TestBase;
 import com.naveenautomation.Browsers.ProxyDriver;
 
 public class AccountLoginPage extends Page {
