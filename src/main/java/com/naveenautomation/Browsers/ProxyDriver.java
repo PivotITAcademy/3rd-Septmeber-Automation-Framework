@@ -11,6 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -212,6 +213,11 @@ public class ProxyDriver implements WebDriver,JavascriptExecutor,TakesScreenshot
 	public void submit(By by) {
 		WebElement element=this.waitForElementToBeClickable(by,10);
 		element.submit();
+	}
+	public void mouseHover(By by) {
+		WebElement element =this.waitForElementToBeVisible(by, 5);
+		Actions action = new Actions(driver);
+		action.moveToElement(element).perform();
 	}
 	
 }
