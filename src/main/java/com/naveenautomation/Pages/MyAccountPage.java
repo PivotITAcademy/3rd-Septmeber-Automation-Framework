@@ -12,21 +12,26 @@ public class MyAccountPage extends Page {
 	public MyAccountPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
 	}
-
+	
+	private static final By phonelink = By.cssSelector("i.fa.fa-phone");
+	private static final By GiftCertificatesLink = By
+			.cssSelector("footer div.row div.col-sm-3:nth-of-type(3) ul li:nth-of-type(2) a");
 	private static final By myAccountText = By.xpath("//h2[text()='My Account']");
 	private static final By changePasswordLink = By.cssSelector("#column-right a:nth-of-type(3)");
 	private static final By SuccessBanner = By.cssSelector("div.alert-success");
 	private static final By orderHistoryLink = By.cssSelector("div.list-group a:nth-of-type(6)");
 	private static final By editAccountLink = By.xpath("//a[text()='Edit Account']");
-	private static final By GiftCertificatesLink = By
-			.cssSelector("footer div.row div.col-sm-3:nth-of-type(3) ul li:nth-of-type(2) a");
 	private static final By registerForAnAffiliateAccount = By.cssSelector("a[href$='affiliate/add']");
 	private static final By affiliateAccountCreationSuccessText = By.cssSelector("div.alert");
+	
+	public ContactPage clickPhoneLink() {
+		((ProxyDriver) wd).click(phonelink);
+		return new ContactPage(wd, true);
+		}
 
 	public PurchaseGiftCertificatePage clickGiftCertificateLink() {
 		((ProxyDriver) wd).click(GiftCertificatesLink);
 		return new PurchaseGiftCertificatePage(wd, true);
-
 	}
 
 	public String getMyAccountText() {
@@ -45,6 +50,7 @@ public class MyAccountPage extends Page {
 	public OrderHistoryPage clickOrderHistoryLink() {
 		((ProxyDriver) wd).click(orderHistoryLink);
 		return new OrderHistoryPage(wd, true);
+
 	}
 
 	public MyAccountInformationPage clickEditAccountLink() {
