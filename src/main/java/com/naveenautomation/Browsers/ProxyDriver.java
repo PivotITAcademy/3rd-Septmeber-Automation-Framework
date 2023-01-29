@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 //This is a proxy driver class
-public class ProxyDriver implements WebDriver,JavascriptExecutor,TakesScreenshot {
+public class ProxyDriver implements WebDriver, JavascriptExecutor, TakesScreenshot {
 
 	private WebDriver driver;
 
@@ -33,7 +33,7 @@ public class ProxyDriver implements WebDriver,JavascriptExecutor,TakesScreenshot
 	}
 
 	public Object executeScript(String script, Object... args) {
-		return ((JavascriptExecutor)driver).executeScript(script, args);
+		return ((JavascriptExecutor) driver).executeScript(script, args);
 	}
 
 	public Object executeAsyncScript(String script, Object... args) {
@@ -205,13 +205,12 @@ public class ProxyDriver implements WebDriver,JavascriptExecutor,TakesScreenshot
 	@Override
 	public <X> X getScreenshotAs(OutputType<X> target) throws WebDriverException {
 		// TODO Auto-generated method stub
-		return ((TakesScreenshot)driver).getScreenshotAs(target);
+		return ((TakesScreenshot) driver).getScreenshotAs(target);
 	}
 
-	
 	public void submit(By by) {
-		WebElement element=this.waitForElementToBeClickable(by,10);
+		WebElement element = this.waitForElementToBeClickable(by, 10);
 		element.submit();
 	}
-	
+
 }
