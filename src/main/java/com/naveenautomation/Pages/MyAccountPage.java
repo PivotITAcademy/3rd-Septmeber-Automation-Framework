@@ -13,6 +13,8 @@ public class MyAccountPage extends Page {
 		super(wd, waitForPageToLoad);
 	}
 
+	private static final By GiftCertificatesLink = By
+			.cssSelector("footer div.row div.col-sm-3:nth-of-type(3) ul li:nth-of-type(2) a");
 	private static final By myAccountText = By.xpath("//h2[text()='My Account']");
 	private static final By changePasswordLink = By.cssSelector("#column-right a:nth-of-type(3)");
 	private static final By passwordChangesSuccessBanner = By.cssSelector("div.alert-success");
@@ -20,6 +22,11 @@ public class MyAccountPage extends Page {
 	private static final By registerForAnAffiliateAccount = By.cssSelector("a[href$='affiliate/add']");
 	private static final By affiliateAccountCreationSuccessText = By.cssSelector("div.alert");
 
+	public PurchaseGiftCertificatePage clickGiftCertificateLink() {
+		((ProxyDriver) wd).click(GiftCertificatesLink);
+		return new PurchaseGiftCertificatePage(wd, true);
+
+	}
 
 	public String getMyAccountText() {
 		return ((ProxyDriver) wd).getText(myAccountText, 10);
@@ -43,7 +50,7 @@ public class MyAccountPage extends Page {
 		((ProxyDriver) wd).click(registerForAnAffiliateAccount);
 		return new YourAffiliateInformationPage(wd, true);
 	}
-	
+
 	public String getAffiliateAccountCreationSuccessText() {
 		return ((ProxyDriver) wd).getText(affiliateAccountCreationSuccessText, 10);
 	}
