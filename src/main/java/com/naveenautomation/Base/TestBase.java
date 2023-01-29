@@ -16,11 +16,8 @@ public class TestBase {
 
 
 /*
- * This is a base class
- * 
+ * This is a base class 
  */
-
-
 	public static WebDriver driver;
 	public Browsers DEFAULT_BROWSER = Browsers.GOOGLE_CHROME;
 	public static WebdriverEvents events = new WebdriverEvents();
