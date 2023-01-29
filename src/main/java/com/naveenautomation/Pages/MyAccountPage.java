@@ -22,6 +22,13 @@ public class MyAccountPage extends Page {
 	private static final By passwordChangesSuccessBanner=By.cssSelector("div.alert-success");
 	private static final By orderHistoryLink=By.cssSelector("div.list-group a:nth-of-type(6)");
 
+	private static By contactUs = By.xpath("//a[text()='Contact Us']");
+	
+	public contactUsPage clickContactUs() {
+		((ProxyDriver)wd).click(contactUs);
+		return new contactUsPage();
+		
+	}
 	public String getMyAccountText() {
 		return ((ProxyDriver)wd).getText(myAccountText, 10);
 	}
