@@ -8,3 +8,7 @@
 .idea
 .project
 *.iml
+/bin/
+*.class
+
+

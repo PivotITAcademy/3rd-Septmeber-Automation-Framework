@@ -26,7 +26,8 @@ public class PurchaseGiftCertificateTest extends TestBase {
 	}
 
 	@Test
-	public void verifyUserAbleToPurchaseGiftCertificate() {
+	public void verifyUserAbleToPurchaseGiftCertificate()
+	{
 
 		myAccountPage.clickGiftCertificateLink();
 		PurchaseGiftCertificatePage giftPurchase = new PurchaseGiftCertificatePage(driver, true);
