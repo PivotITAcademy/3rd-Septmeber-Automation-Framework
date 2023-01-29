@@ -10,6 +10,7 @@ import com.naveenautomation.Base.TestBase;
 import com.naveenautomation.Pages.AccountLoginPage;
 import com.naveenautomation.Pages.ChangePasswordPage;
 import com.naveenautomation.Pages.MyAccountPage;
+import com.naveenautomation.Pages.PurchaseGiftCertificatePage;
 
 public class MyAccountTest extends TestBase {
 
@@ -20,13 +21,15 @@ public class MyAccountTest extends TestBase {
 	public void setUp() {
 		launchBrowser();
 		accountLoginPage = new AccountLoginPage(driver,true).get();
-		myAccountPage = accountLoginPage.login("iron.man@gmail.com", "Password2");
+		myAccountPage = accountLoginPage.login("harinder21@gmail.com", "Password1");
 	}
 
 	@Test
 	public void verifyLogin() {
 		Assert.assertEquals(myAccountPage.getMyAccountText(), "My Account", "Login Failed");
 	}
+	
+	
 
 	@Ignore
 	@Test
@@ -39,6 +42,6 @@ public class MyAccountTest extends TestBase {
 
 	@AfterMethod
 	public void teardown() {
-		quitBrowser();
+		//quitBrowser();
 	}
 }

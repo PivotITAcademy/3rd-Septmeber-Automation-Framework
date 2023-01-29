@@ -21,7 +21,15 @@ public class MyAccountPage extends Page {
 	private static final By changePasswordLink=By.cssSelector("#column-right a:nth-of-type(3)");
 	private static final By passwordChangesSuccessBanner=By.cssSelector("div.alert-success");
 	private static final By orderHistoryLink=By.cssSelector("div.list-group a:nth-of-type(6)");
+	private static final By GiftCertificatesLink=By.cssSelector("footer div.row div.col-sm-3:nth-of-type(3) ul li:nth-of-type(2) a");
 
+	public PurchaseGiftCertificatePage clickGiftCertificateLink() {
+		((ProxyDriver)wd).click( GiftCertificatesLink);
+		return new PurchaseGiftCertificatePage (wd,true);
+		
+	}
+	
+	
 	public String getMyAccountText() {
 		return ((ProxyDriver)wd).getText(myAccountText, 10);
 	}
