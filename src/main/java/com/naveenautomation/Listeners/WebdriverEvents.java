@@ -11,7 +11,7 @@ import com.naveenautomation.Base.TestBase;
 import com.naveenautomation.Utils.Log;
 
 public class WebdriverEvents extends TestBase implements WebDriverEventListener {
-//munni badnam
+
 	Logger log=Log.getLoggerData(this.getClass().getName());
 	@Override
 	public void beforeAlertAccept(WebDriver driver) {
@@ -36,7 +36,7 @@ public class WebdriverEvents extends TestBase implements WebDriverEventListener 
 		// TODO Auto-generated method stub
 		
 	}
-//sheela jawan
+
 	@Override
 	public void beforeNavigateTo(String url, WebDriver driver) {
 		log.info("navigating to" + url);

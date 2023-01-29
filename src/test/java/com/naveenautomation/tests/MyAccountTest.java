@@ -20,7 +20,7 @@ public class MyAccountTest extends TestBase {
 	@BeforeMethod
 	public void setUp() {
 		launchBrowser();
-		accountLoginPage = new AccountLoginPage(driver,true).get();
+		accountLoginPage = new AccountLoginPage(driver, true).get();
 		myAccountPage = accountLoginPage.login("harinder21@gmail.com", "Password1");
 	}
 
@@ -28,8 +28,6 @@ public class MyAccountTest extends TestBase {
 	public void verifyLogin() {
 		Assert.assertEquals(myAccountPage.getMyAccountText(), "My Account", "Login Failed");
 	}
-	
-	
 
 	@Ignore
 	@Test
@@ -42,6 +40,6 @@ public class MyAccountTest extends TestBase {
 
 	@AfterMethod
 	public void teardown() {
-		//quitBrowser();
+		quitBrowser();
 	}
 }
