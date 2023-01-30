@@ -12,9 +12,9 @@ import com.naveenautomation.Pages.MyAccountPage;
 
 public class DesktopTest extends TestBase {
 
-	AccountLoginPage accountLoginPage;
-	MyAccountPage accountPage;
-	DesktopPage desktopPage;
+	private AccountLoginPage accountLoginPage;
+	private MyAccountPage accountPage;
+	private DesktopPage desktopPage;
 
 	SoftAssert sf;
 

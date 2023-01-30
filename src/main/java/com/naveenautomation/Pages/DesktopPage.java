@@ -12,7 +12,7 @@ public class DesktopPage extends Page {
 		// TODO Auto-generated constructor stub
 	}
 
-	private static final String PAGE_URL = "/category&path=20";
+	private static final String PAGE_URL = "/category";
 
 	private static final By macBookCompareButton = By
 			.cssSelector("#content>div div:nth-of-type(7) button:nth-of-type(3)");
