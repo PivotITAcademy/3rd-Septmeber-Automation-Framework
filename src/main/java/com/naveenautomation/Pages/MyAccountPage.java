@@ -12,15 +12,15 @@ public class MyAccountPage extends Page {
 	public MyAccountPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
 	}
-
 	
 	private static final By phonelink = By.cssSelector("i.fa.fa-phone");
 	private static final By GiftCertificatesLink = By
 			.cssSelector("footer div.row div.col-sm-3:nth-of-type(3) ul li:nth-of-type(2) a");
 	private static final By myAccountText = By.xpath("//h2[text()='My Account']");
 	private static final By changePasswordLink = By.cssSelector("#column-right a:nth-of-type(3)");
-	private static final By passwordChangesSuccessBanner = By.cssSelector("div.alert-success");
+	private static final By successBanner = By.cssSelector("div.alert-success");
 	private static final By orderHistoryLink = By.cssSelector("div.list-group a:nth-of-type(6)");
+	private static final By editAccountLink = By.xpath("//a[text()='Edit Account']");
 	private static final By registerForAnAffiliateAccount = By.cssSelector("a[href$='affiliate/add']");
 	private static final By affiliateAccountCreationSuccessText = By.cssSelector("div.alert");
 	
@@ -43,14 +43,19 @@ public class MyAccountPage extends Page {
 		return new ChangePasswordPage(wd, true);
 	}
 
-	public String getPasswordChangeSuccessMessage() {
-		return ((ProxyDriver) wd).getText(passwordChangesSuccessBanner, 10);
+	public String getSuccessMessageText() {
+		return ((ProxyDriver) wd).getText(successBanner, 10);
 	}
 
 	public OrderHistoryPage clickOrderHistoryLink() {
 		((ProxyDriver) wd).click(orderHistoryLink);
 		return new OrderHistoryPage(wd, true);
 
+	}
+
+	public MyAccountInformationPage clickEditAccountLink() {
+		((ProxyDriver) wd).click(editAccountLink);
+		return new MyAccountInformationPage(wd, true);
 	}
 
 	public YourAffiliateInformationPage clickRegisterForAnAffiliateAccount() {
@@ -60,6 +65,7 @@ public class MyAccountPage extends Page {
 
 	public String getAffiliateAccountCreationSuccessText() {
 		return ((ProxyDriver) wd).getText(affiliateAccountCreationSuccessText, 10);
+
 	}
 
 	@Override
@@ -74,4 +80,5 @@ public class MyAccountPage extends Page {
 	protected String getPageUrl() {
 		return getDomain() + PAGE_URL;
 	}
+
 }
