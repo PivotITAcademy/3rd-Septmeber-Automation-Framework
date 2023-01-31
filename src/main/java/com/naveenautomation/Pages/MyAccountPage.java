@@ -12,7 +12,7 @@ public class MyAccountPage extends Page {
 	public MyAccountPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
 	}
-	
+
 	private static final By phonelink = By.cssSelector("i.fa.fa-phone");
 	private static final By GiftCertificatesLink = By
 			.cssSelector("footer div.row div.col-sm-3:nth-of-type(3) ul li:nth-of-type(2) a");
@@ -23,11 +23,17 @@ public class MyAccountPage extends Page {
 	private static final By editAccountLink = By.xpath("//a[text()='Edit Account']");
 	private static final By registerForAnAffiliateAccount = By.cssSelector("a[href$='affiliate/add']");
 	private static final By affiliateAccountCreationSuccessText = By.cssSelector("div.alert");
-	
+	private static final By addToReturnLink = By.xpath("(//a[text()='Returns']) [2]");
+
+	public ProductReturnsPage clickaddToReturnLink() {
+		((ProxyDriver) wd).click(addToReturnLink);
+		return new ProductReturnsPage(wd, true);
+	}
+
 	public ContactPage clickPhoneLink() {
 		((ProxyDriver) wd).click(phonelink);
 		return new ContactPage(wd, true);
-		}
+	}
 
 	public PurchaseGiftCertificatePage clickGiftCertificateLink() {
 		((ProxyDriver) wd).click(GiftCertificatesLink);
