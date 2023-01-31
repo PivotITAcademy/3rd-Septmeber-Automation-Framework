@@ -7,7 +7,7 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class RegisterAccountPage extends Page {
 
-	private static final String PAGE_URL = "/register";
+	private static final String PAGE_URL = "/opencart/index.php?route=account/register";
 
 	public RegisterAccountPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
@@ -65,7 +65,6 @@ public class RegisterAccountPage extends Page {
 
 	@Override
 	protected void isLoaded() {
-
 		if (!urlContains(wd.getCurrentUrl())) {
 			throw new Error();
 		}
@@ -74,6 +73,11 @@ public class RegisterAccountPage extends Page {
 	@Override
 	protected String getPageUrl() {
 		return getDomain() + PAGE_URL;
+	}
+
+	@Override
+	public RegisterAccountPage get() {
+		return (RegisterAccountPage) super.get();
 	}
 
 }

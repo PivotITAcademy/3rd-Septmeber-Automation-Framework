@@ -32,7 +32,7 @@ public class MyAccountTest extends TestBase {
 	@Test
 	public void validateUserIsAbleToEditAccount() {
 
-		MyAccountInformationPage accountInformationPage = myAccountPage.clickEditAccountLink();
+		MyAccountInformationPage accountInformationPage = myAccountPage.clickEditAccountLink().get();
 		accountInformationPage.clickContinueAfterEditingTheAccount("1123456780");
 		Assert.assertEquals(myAccountPage.getSuccessMessageText(),
 				"Success: Your account has been successfully updated.", "Phone number is not updated");

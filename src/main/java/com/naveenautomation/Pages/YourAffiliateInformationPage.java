@@ -7,7 +7,7 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class YourAffiliateInformationPage extends Page {
 
-	private static final String PAGE_URL = "/affiliate/add";
+	private static final String PAGE_URL = "/opencart/index.php?route=account/affiliate/add";
 
 	public YourAffiliateInformationPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
@@ -47,7 +47,6 @@ public class YourAffiliateInformationPage extends Page {
 
 	@Override
 	protected void isLoaded() {
-
 		if (!urlContains(wd.getCurrentUrl())) {
 			throw new Error();
 		}

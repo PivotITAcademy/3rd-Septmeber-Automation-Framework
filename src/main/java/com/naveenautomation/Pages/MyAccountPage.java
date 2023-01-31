@@ -7,7 +7,7 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class MyAccountPage extends Page {
 
-	private static final String PAGE_URL = "/account";
+	private static final String PAGE_URL = "/opencart/index.php?route=account/account";
 
 	public MyAccountPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
@@ -23,6 +23,13 @@ public class MyAccountPage extends Page {
 	private static final By editAccountLink = By.xpath("//a[text()='Edit Account']");
 	private static final By registerForAnAffiliateAccount = By.cssSelector("a[href$='affiliate/add']");
 	private static final By affiliateAccountCreationSuccessText = By.cssSelector("div.alert");
+	private static final By cameraLink = By.cssSelector("div.navbar-collapse ul>li:nth-of-type(7) a");
+	private static final By addToReturnLink = By.xpath("(//a[text()='Returns']) [2]");
+
+	public ProductReturnsPage clickaddToReturnLink() {
+		((ProxyDriver) wd).click(addToReturnLink);
+		return new ProductReturnsPage(wd, true);
+	}
 
 	public ContactPage clickPhoneLink() {
 		((ProxyDriver) wd).click(phonelink);
@@ -89,6 +96,11 @@ public class MyAccountPage extends Page {
 
 	}
 
+	public CamerasPage clickCameraLink() {
+		((ProxyDriver) wd).click(cameraLink);
+		return new CamerasPage(wd, true);
+	}
+
 	@Override
 	protected void isLoaded() {
 
@@ -100,6 +112,11 @@ public class MyAccountPage extends Page {
 	@Override
 	protected String getPageUrl() {
 		return getDomain() + PAGE_URL;
+	}
+
+	@Override
+	public MyAccountPage get() {
+		return (MyAccountPage) super.get();
 	}
 
 }
