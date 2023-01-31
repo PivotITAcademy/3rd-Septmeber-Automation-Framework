@@ -7,11 +7,10 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class MyAccountInformationPage extends Page {
 
-	private static final String PAGE_URL = "/edit";
+	private static final String PAGE_URL = "/opencart/index.php?route=account/edit";
 
 	public MyAccountInformationPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
-
 	}
 
 	private static final By telephoneInputField = By.id("input-telephone");
@@ -38,6 +37,11 @@ public class MyAccountInformationPage extends Page {
 	@Override
 	protected String getPageUrl() {
 		return getDomain() + PAGE_URL;
+	}
+
+	@Override
+	public MyAccountInformationPage get() {
+		return (MyAccountInformationPage) super.get();
 	}
 
 }

@@ -7,11 +7,10 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class AccountLoginPage extends Page {
 
-	private static final String PAGE_URL = "/login";
+	private static final String PAGE_URL = "/opencart/index.php?route=account/login";
 
 	public AccountLoginPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
-		// TODO Auto-generated constructor stub
 	}
 
 	private static By emailInputField = By.cssSelector("form div.form-group:first-of-type input");
@@ -29,7 +28,6 @@ public class AccountLoginPage extends Page {
 	}
 
 	public MyAccountPage login(String email, String password) {
-
 		enterEmailInputField(email);
 		enterPasswordInputField(password);
 		((ProxyDriver) wd).submit(loginBtn);
@@ -48,7 +46,6 @@ public class AccountLoginPage extends Page {
 
 	@Override
 	protected void isLoaded() {
-
 		if (!urlContains(wd.getCurrentUrl())) {
 			throw new Error();
 		}
@@ -61,7 +58,6 @@ public class AccountLoginPage extends Page {
 
 	@Override
 	public AccountLoginPage get() {
-		// TODO Auto-generated method stub
 		return (AccountLoginPage) super.get();
 	}
 
