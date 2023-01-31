@@ -7,8 +7,8 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class ChangePasswordPage extends Page {
 
-	
-	private static final String PAGE_URL="/password";
+	private static final String PAGE_URL = "/opencart/index.php?route=account/password";
+
 	public ChangePasswordPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
 	}
@@ -28,14 +28,19 @@ public class ChangePasswordPage extends Page {
 	@Override
 	protected void isLoaded() {
 
-		if(!urlContains(wd.getCurrentUrl())) {
+		if (!urlContains(wd.getCurrentUrl())) {
 			throw new Error();
 		}
 	}
-	
+
 	@Override
 	protected String getPageUrl() {
 		return getDomain() + PAGE_URL;
+	}
+
+	@Override
+	public ChangePasswordPage get() {
+		return (ChangePasswordPage) super.get();
 	}
 
 }

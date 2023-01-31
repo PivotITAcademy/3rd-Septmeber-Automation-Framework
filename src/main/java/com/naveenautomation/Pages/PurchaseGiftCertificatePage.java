@@ -11,7 +11,7 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class PurchaseGiftCertificatePage extends Page {
 
-	private static final String PAGE_URL = "/voucher";
+	private static final String PAGE_URL = "/opencart/index.php?route=account/voucher";
 
 	public PurchaseGiftCertificatePage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
@@ -87,12 +87,18 @@ public class PurchaseGiftCertificatePage extends Page {
 
 	@Override
 	protected void isLoaded() {
-
+		if (!urlContains(wd.getCurrentUrl())) {
+			throw new Error();
+		}
 	}
 
 	public String getTitle() {
-
 		return ((ProxyDriver) wd).getTitle();
+	}
+
+	@Override
+	public PurchaseGiftCertificatePage get() {
+		return (PurchaseGiftCertificatePage) super.get();
 	}
 
 }

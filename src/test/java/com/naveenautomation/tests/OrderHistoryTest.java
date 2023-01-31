@@ -24,7 +24,7 @@ public class OrderHistoryTest extends TestBase {
 	@Test
 	public void verifyPriceForOrder() {
 		AccountLoginPage accountLoginPage = new AccountLoginPage(driver,true).get();
-		MyAccountPage myAccountPage=accountLoginPage.login("iron.man@gmail.com", "Password2");
+		MyAccountPage myAccountPage=accountLoginPage.login("iron.man@gmail.com", "Password2").get();
 		OrderHistoryPage orderHistoryPage=myAccountPage.clickOrderHistoryLink();
 		WebElement priceElement=orderHistoryPage.getElementFromTheTable("#2539", OrderHistory.CUSTOMER);
 		Assert.assertEquals(priceElement.getText(), "priceElement.getText()");

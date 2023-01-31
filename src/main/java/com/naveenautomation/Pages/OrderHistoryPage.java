@@ -8,11 +8,10 @@ import org.openqa.selenium.WebElement;
 
 public class OrderHistoryPage extends Page {
 
-	private static final String PAGE_URL="/order";
-	
+	private static final String PAGE_URL = "/opencart/index.php?route=account/order";
+
 	public OrderHistoryPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
-		// TODO Auto-generated constructor stub
 	}
 
 	public WebElement getElementFromTheTable(String orderID, OrderHistory column) {
@@ -52,11 +51,7 @@ public class OrderHistoryPage extends Page {
 
 	public enum OrderHistory {
 
-		ORDERID("Order ID"), 
-		CUSTOMER("Customer"), 
-		NOOFPRODUCTS("No. of Products"), 
-		STATUS("Status"), 
-		TOTAL("Total"),
+		ORDERID("Order ID"), CUSTOMER("Customer"), NOOFPRODUCTS("No. of Products"), STATUS("Status"), TOTAL("Total"),
 		DATAADDED("Date Added");
 
 		String name;
@@ -72,15 +67,19 @@ public class OrderHistoryPage extends Page {
 
 	@Override
 	protected void isLoaded() {
-
-		if(!urlContains(wd.getCurrentUrl())) {
+		if (!urlContains(wd.getCurrentUrl())) {
 			throw new Error();
 		}
 	}
-	
+
 	@Override
 	protected String getPageUrl() {
 		return getDomain() + PAGE_URL;
+	}
+
+	@Override
+	public OrderHistoryPage get() {
+		return (OrderHistoryPage) super.get();
 	}
 
 }
