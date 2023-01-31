@@ -7,7 +7,7 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class ContactPage extends Page {
 
-	private static final String PAGE_URL = "/contact";
+	private static final String PAGE_URL = "/opencart/index.php?route=information/contact";
 
 	public ContactPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
@@ -27,8 +27,8 @@ public class ContactPage extends Page {
 		((ProxyDriver) wd).sendKeys(nameField, name);
 	}
 
-	private void enterEmailField(String name) {
-		((ProxyDriver) wd).sendKeys(emailField, name);
+	private void enterEmailField(String email) {
+		((ProxyDriver) wd).sendKeys(emailField, email);
 	}
 
 	private void enterEnquiryField(String enquiryText) {

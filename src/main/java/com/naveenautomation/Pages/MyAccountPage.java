@@ -7,12 +7,12 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class MyAccountPage extends Page {
 
-	private static final String PAGE_URL = "/account";
+	private static final String PAGE_URL = "/opencart/index.php?route=account/account";
 
 	public MyAccountPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
 	}
-	
+
 	private static final By phonelink = By.cssSelector("i.fa.fa-phone");
 	private static final By GiftCertificatesLink = By
 			.cssSelector("footer div.row div.col-sm-3:nth-of-type(3) ul li:nth-of-type(2) a");
@@ -23,11 +23,12 @@ public class MyAccountPage extends Page {
 	private static final By editAccountLink = By.xpath("//a[text()='Edit Account']");
 	private static final By registerForAnAffiliateAccount = By.cssSelector("a[href$='affiliate/add']");
 	private static final By affiliateAccountCreationSuccessText = By.cssSelector("div.alert");
-	
+	private static final By cameraLink = By.cssSelector("div.navbar-collapse ul>li:nth-of-type(7) a");
+
 	public ContactPage clickPhoneLink() {
 		((ProxyDriver) wd).click(phonelink);
 		return new ContactPage(wd, true);
-		}
+	}
 
 	public PurchaseGiftCertificatePage clickGiftCertificateLink() {
 		((ProxyDriver) wd).click(GiftCertificatesLink);
@@ -68,6 +69,11 @@ public class MyAccountPage extends Page {
 
 	}
 
+	public CamerasPage clickCameraLink() {
+		((ProxyDriver) wd).click(cameraLink);
+		return new CamerasPage(wd, true);
+	}
+
 	@Override
 	protected void isLoaded() {
 
@@ -79,6 +85,11 @@ public class MyAccountPage extends Page {
 	@Override
 	protected String getPageUrl() {
 		return getDomain() + PAGE_URL;
+	}
+
+	@Override
+	public MyAccountPage get() {
+		return (MyAccountPage) super.get();
 	}
 
 }
