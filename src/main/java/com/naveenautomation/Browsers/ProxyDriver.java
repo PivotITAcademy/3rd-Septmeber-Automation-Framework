@@ -16,8 +16,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-//This is a proxy driver class 
-public class ProxyDriver implements WebDriver,JavascriptExecutor,TakesScreenshot {
+
+//This is a proxy driver class
+public class ProxyDriver implements WebDriver, JavascriptExecutor, TakesScreenshot {
 
 	private WebDriver driver;
 
@@ -32,9 +33,13 @@ public class ProxyDriver implements WebDriver,JavascriptExecutor,TakesScreenshot
 	public void click(By locator) {
 		this.waitForElementToBeClickable(locator, 5).click();
 	}
+	
+	public void clear(By locator) {
+		this.waitForElementToBeVisible(locator, 5).clear();
+	}
 
 	public Object executeScript(String script, Object... args) {
-		return ((JavascriptExecutor)driver).executeScript(script, args);
+		return ((JavascriptExecutor) driver).executeScript(script, args);
 	}
 
 	public Object executeAsyncScript(String script, Object... args) {
@@ -206,14 +211,14 @@ public class ProxyDriver implements WebDriver,JavascriptExecutor,TakesScreenshot
 	@Override
 	public <X> X getScreenshotAs(OutputType<X> target) throws WebDriverException {
 		// TODO Auto-generated method stub
-		return ((TakesScreenshot)driver).getScreenshotAs(target);
+		return ((TakesScreenshot) driver).getScreenshotAs(target);
 	}
 
-	
 	public void submit(By by) {
-		WebElement element=this.waitForElementToBeClickable(by,10);
+		WebElement element = this.waitForElementToBeClickable(by, 10);
 		element.submit();
 	}
+
 	public void mouseHover(By by) {
 		WebElement element =this.waitForElementToBeVisible(by, 5);
 		Actions action = new Actions(driver);
