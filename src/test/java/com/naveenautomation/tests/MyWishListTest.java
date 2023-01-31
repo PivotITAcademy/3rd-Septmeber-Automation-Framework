@@ -14,11 +14,11 @@ import com.naveenautomation.Pages.MyWishListPage.WishList;
 
 public class MyWishListTest extends TestBase {
 
-	SoftAssert softAssert;
-	AccountLoginPage accountLoginPage;
-	MyAccountPage myAccountPage;
-	MonitorsPage monitorsPage;
-	MyWishListPage myWishListPage;
+	private SoftAssert softAssert;
+	private AccountLoginPage accountLoginPage;
+	private MyAccountPage myAccountPage;
+	private MonitorsPage monitorsPage;
+	private MyWishListPage myWishListPage;
 
 	@BeforeMethod
 	public void setUp() {
@@ -43,7 +43,8 @@ public class MyWishListTest extends TestBase {
 		monitorsPage.addToWishListFirstMonitor();
 		myWishListPage = monitorsPage.clickWishlistLink();
 		// validating name of monitor added to the wishlist
-		softAssert.assertEquals(myWishListPage.getElementFromTheTable("Apple Cinema 30\"", WishList.PRODUCTNAME).getText(),
+		softAssert.assertEquals(
+				myWishListPage.getElementFromTheTable("Apple Cinema 30\"", WishList.PRODUCTNAME).getText(),
 				"Apple Cinema 30\"", "Monitor name doesn't match");
 
 		softAssert.assertAll();
