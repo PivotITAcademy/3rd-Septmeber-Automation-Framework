@@ -2,6 +2,7 @@ package com.naveenautomation.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.naveenautomation.Browsers.ProxyDriver;
 
@@ -9,12 +10,12 @@ public class PurchaseGiftCertificateSuccessPage extends Page {
 
 	private static final String PAGE_URL = "/opencart/index.php?route=account/voucher/success";
 
+	private static final By continueBtn = By.cssSelector("div.buttons a");
+
 	public PurchaseGiftCertificateSuccessPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
 
 	}
-
-	private static final By continueBtn = By.cssSelector("div.buttons a");
 
 	@Override
 	protected String getPageUrl() {
@@ -28,11 +29,16 @@ public class PurchaseGiftCertificateSuccessPage extends Page {
 		}
 	}
 
+	public void getEstimatedShipping() {
+		((ProxyDriver) wd).click(continueBtn);
+
+	}
+
 	public ShoppingCartPage clickContinueBtn() {
 		((ProxyDriver) wd).click(continueBtn);
 		return new ShoppingCartPage(wd, true);
 	}
-	
+
 	@Override
 	public PurchaseGiftCertificateSuccessPage get() {
 		return (PurchaseGiftCertificateSuccessPage) super.get();
