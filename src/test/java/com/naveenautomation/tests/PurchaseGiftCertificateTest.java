@@ -26,19 +26,15 @@ public class PurchaseGiftCertificateTest extends TestBase {
 	}
 
 	@Test
-	public void verifyUserAbleToPurchaseGiftCertificate()
-	{
-
+	public void verifyUserAbleToPurchaseGiftCertificate() {
 		myAccountPage.clickGiftCertificateLink();
-		PurchaseGiftCertificatePage giftPurchase = new PurchaseGiftCertificatePage(driver, true);
+		PurchaseGiftCertificatePage giftPurchase = new PurchaseGiftCertificatePage(driver, true).get();
 		Assert.assertEquals(giftPurchase.getTitle(), "Purchase a Gift Certificate", "Wrong title");
 		PurchaseGiftCertificateSuccessPage giftPurchaseSucess = new PurchaseGiftCertificateSuccessPage(driver, true);
 		giftPurchaseSucess = giftPurchase.purchaseGiftCertificate("KaurRaj", "rkaler456@gmail.com", "Happy Birthday",
 				"5");
 		ShoppingCartPage shoopingCart = giftPurchaseSucess.clickContinueBtn();
 		Assert.assertEquals(shoopingCart.getTitle(), "Shopping Cart", "WrongTitle");
-		
-
 	}
 
 	@AfterMethod

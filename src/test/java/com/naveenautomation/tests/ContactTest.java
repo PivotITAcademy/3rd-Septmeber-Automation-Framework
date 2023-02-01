@@ -24,11 +24,11 @@ public class ContactTest extends TestBase {
 
 	@Test
 	public void VerifyUserIsAbleToSubmitContactFormSuccessFully() {
-		contactPage = myAccountPage.clickPhoneLink();
+		contactPage = myAccountPage.clickPhoneLink().get();
 		contactPage.submitContactForm("ironman", "iron.man@gmail.com",
 				"This is test to verify submission of contact form");
 		Assert.assertEquals(contactPage.getSuccessText(), "Your enquiry has been successfully sent to the store owner!",
-				"Ivalid text");
+				"Invalid text");
 
 	}
 
