@@ -23,7 +23,7 @@ public class MyAccountPage extends Page {
 	private static final By editAccountLink = By.xpath("//a[text()='Edit Account']");
 	private static final By registerForAnAffiliateAccount = By.cssSelector("a[href$='affiliate/add']");
 	private static final By affiliateAccountCreationSuccessText = By.cssSelector("div.alert");
-  private static final By cameraLink = By.cssSelector("div.navbar-collapse ul>li:nth-of-type(7) a");
+	private static final By cameraLink = By.cssSelector("div.navbar-collapse ul>li:nth-of-type(7) a");
 	private static final By addToReturnLink = By.xpath("(//a[text()='Returns']) [2]");
 
 	public ProductReturnsPage clickaddToReturnLink() {
@@ -36,9 +36,25 @@ public class MyAccountPage extends Page {
 		return new ContactPage(wd, true);
 	}
 
+	private static final By passwordChangesSuccessBanner = By.cssSelector("div.alert-success");
+
+	private static final By desktop = By.cssSelector("ul.nav>li:first-of-type>a");
+	private static final By showAllDesktop = By.xpath("//a[text()='Show All Desktops']");
+
+	private void clickDesktop() {
+		((ProxyDriver) wd).click(desktop);
+	}
+
+	public DesktopPage showAllDesktop() {
+		clickDesktop();
+		((ProxyDriver) wd).click(showAllDesktop);
+		return new DesktopPage(wd, true);
+	}
+
 	public PurchaseGiftCertificatePage clickGiftCertificateLink() {
 		((ProxyDriver) wd).click(GiftCertificatesLink);
 		return new PurchaseGiftCertificatePage(wd, true);
+
 	}
 
 	public String getMyAccountText() {
@@ -50,8 +66,13 @@ public class MyAccountPage extends Page {
 		return new ChangePasswordPage(wd, true);
 	}
 
+	public String getPasswordChangeSuccessMessage() {
+		return ((ProxyDriver) wd).getText(passwordChangesSuccessBanner, 10);
+	}
+
 	public String getSuccessMessageText() {
 		return ((ProxyDriver) wd).getText(successBanner, 10);
+
 	}
 
 	public OrderHistoryPage clickOrderHistoryLink() {
