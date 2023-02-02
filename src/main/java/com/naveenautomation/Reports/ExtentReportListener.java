@@ -58,6 +58,7 @@ public class ExtentReportListener extends TestListenerAdapter {
 	public void onTestFailure(ITestResult tr) {
 		test = extent.createTest(tr.getName());
 		test.log(Status.FAIL, MarkupHelper.createLabel(tr.getName(), ExtentColor.RED));
+		test.assignAuthor("Tester1").assignCategory("Failed Regression").pass("Relook at the test");
 	}
 
 	@Override

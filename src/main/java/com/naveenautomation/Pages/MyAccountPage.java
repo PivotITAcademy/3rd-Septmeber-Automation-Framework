@@ -27,6 +27,7 @@ public class MyAccountPage extends Page {
 	public static final By monitorsLink = By.cssSelector(" ul li.dropdown:nth-of-type(3) li:nth-of-type(2) a");
 	private static final By cameraLink = By.cssSelector("div.navbar-collapse ul>li:nth-of-type(7) a");
 	private static final By addToReturnLink = By.xpath("(//a[text()='Returns']) [2]");
+	private static final By shoppingCartLink = By.cssSelector("div#top-links i.fa.fa-shopping-cart");
 	private static final By clickOnSpecialsLink = By.xpath("//a[text()=\"Specials\"]");
 	private static final By passwordChangesSuccessBanner = By.cssSelector("div.alert-success");
 	private static final By desktop = By.cssSelector("ul.nav>li:first-of-type>a");
@@ -110,6 +111,11 @@ public class MyAccountPage extends Page {
 	public CamerasPage clickCameraLink() {
 		((ProxyDriver) wd).click(cameraLink);
 		return new CamerasPage(wd, true);
+	}
+
+	public ShoppingCartPage clickShoppingCartLink() {
+		((ProxyDriver) wd).click(shoppingCartLink);
+		return new ShoppingCartPage(wd, true);
 	}
 
 	public SpecialsPage clickOnSpeacialInExtras() {
