@@ -27,7 +27,7 @@ public class AccountCreatedTest extends TestBase {
 		RegisterAccountPage registerAccountPage = accountLoginPage.clickContinueButton();
 
 		AccountCreatedPage accountCreated = registerAccountPage.signUp("Jasmeet", "Kaur", "Jassi1234@gmail.com",
-				"6472152994", "Password1", "Password1");
+				"6472152994", "Password1", "Password1").get();
 
 		Assert.assertEquals(accountCreated.getSuccessAccountCreatedTxt(), AccountCreatedPage.RegisterAccountText.ACCOUNT_CREATED_TXT,
 				"Account not created");

@@ -31,7 +31,7 @@ public class AccountLoginTest extends TestBase {
 
 	@DataProvider(name = "LoginDataProvider")
 	public String[][] provideLoginData() throws IOException {
-		String filePath = "./Test Data\\LoginDetails.xlsx";
+		String filePath = "./TestData\\LoginDetails.xlsx";
 		int rowCount = ExcelUtils.getRowCount(filePath, "Sheet1");
 		int colCount = ExcelUtils.getColumnCount(filePath, "Sheet1", rowCount);
 		String[][] loginData = new String[rowCount][colCount];

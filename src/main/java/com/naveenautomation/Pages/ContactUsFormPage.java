@@ -11,7 +11,7 @@ public class ContactUsFormPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(css = "input[name='name']")
+	@FindBy(css = "#input-name")
 	WebElement yourName;
 
 	@FindBy(css = "input[name='email']")
@@ -26,30 +26,17 @@ public class ContactUsFormPage extends TestBase {
 	@FindBy(css = "#content>p")
 	WebElement successMessage;
 
-	public void yourNameField() {
-		yourName.sendKeys("jas");
-	}
-
-	public void emailField() {
-		yourName.sendKeys("jas@gmail.com");
-	}
-
 	public void enquiryField() {
-		yourName.sendKeys("this is sample text");
+		enquiry.sendKeys("this is sample text");
 	}
 
 	public String validateSuccessMessage() {
 		return successMessage.getText();
 	}
 
-	public String contactUsForm() {
-
-		yourNameField();
-		emailField();
+	public void contactUsForm() {
 		enquiryField();
 		submit.click();
-		return validateSuccessMessage();
-
 	}
 
 }

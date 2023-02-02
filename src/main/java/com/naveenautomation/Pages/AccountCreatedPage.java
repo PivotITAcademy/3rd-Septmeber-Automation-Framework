@@ -2,17 +2,13 @@ package com.naveenautomation.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-import com.naveenautomation.Base.TestBase;
 import com.naveenautomation.Browsers.ProxyDriver;
 
 public class AccountCreatedPage extends Page {
 
-	private static final String PAGE_URL="/success";
-	
+	private static final String PAGE_URL = "/opencart/index.php?route=account/success";
+
 	public AccountCreatedPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
 	}
@@ -31,14 +27,19 @@ public class AccountCreatedPage extends Page {
 	@Override
 	protected void isLoaded() {
 
-		if(!urlContains(wd.getCurrentUrl())) {
+		if (!urlContains(wd.getCurrentUrl())) {
 			throw new Error();
 		}
 	}
-	
+
 	@Override
 	protected String getPageUrl() {
 		return getDomain() + PAGE_URL;
+	}
+
+	@Override
+	public AccountCreatedPage get() {
+		return (AccountCreatedPage) super.get();
 	}
 
 }
