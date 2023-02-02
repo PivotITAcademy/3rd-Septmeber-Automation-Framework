@@ -29,10 +29,7 @@ public class SpecialsPageTest extends TestBase {
 		SpecialsPage specialPage = myAccountPage.clickOnSpeacialInExtras();
 		specialPage.clickOnAddToWishlist();
 
-		// softAssert.assertEquals("Success: You have added Apple Cinema 30\" to your
-		// wish list!\n" + "×";
-
-		softAssert.assertEquals("Success: You have added Apple Cinema 30\" to your wish list!\n",
+		softAssert.assertEquals("Success: You have added Apple Cinema 30\" to your wish list!",
 				specialPage.getSuccessBannerText(), "Invalid Banner Text");
 		softAssert.assertAll();
 	}
