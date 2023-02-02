@@ -8,5 +8,8 @@
 .idea
 .project
 *.iml
+<<<<<<< HEAD
+=======
 *.class
+>>>>>>> refs/heads/master
 /bin/

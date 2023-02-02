@@ -5,18 +5,12 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-
 import com.naveenautomation.Browsers.Browsers;
 import com.naveenautomation.Browsers.ProxyDriver;
 import com.naveenautomation.Listeners.WebdriverEvents;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
-
-	/*
-	 * This is a base class
-	 */
 
 	public static WebDriver driver;
 	public Browsers DEFAULT_BROWSER = Browsers.GOOGLE_CHROME;

@@ -13,6 +13,12 @@ public class MyAccountPage extends Page {
 		super(wd, waitForPageToLoad);
 	}
 
+	private static By contactUs = By.xpath("//a[text()='Contact Us']");
+
+	public ContactUsFormPage clickContactUs() {
+		((ProxyDriver) wd).click(contactUs);
+		return new ContactUsFormPage();
+	}
 	private static final By phonelink = By.cssSelector("i.fa.fa-phone");
 	private static final By GiftCertificatesLink = By
 			.cssSelector("footer div.row div.col-sm-3:nth-of-type(3) ul li:nth-of-type(2) a");
@@ -55,7 +61,6 @@ public class MyAccountPage extends Page {
 	public PurchaseGiftCertificatePage clickGiftCertificateLink() {
 		((ProxyDriver) wd).click(GiftCertificatesLink);
 		return new PurchaseGiftCertificatePage(wd, true);
-
 	}
 
 	public String getMyAccountText() {
@@ -79,7 +84,6 @@ public class MyAccountPage extends Page {
 	public OrderHistoryPage clickOrderHistoryLink() {
 		((ProxyDriver) wd).click(orderHistoryLink);
 		return new OrderHistoryPage(wd, true);
-
 	}
 
 	public void hoverOnComponents() {
@@ -115,7 +119,6 @@ public class MyAccountPage extends Page {
 	public SpecialsPage clickOnSpeacialInExtras() {
 		((ProxyDriver) wd).click(clickOnSpecialsLink);
 		return new SpecialsPage(wd, true);
-
 	}
 
 	@Override
