@@ -23,11 +23,13 @@ public class MyAccountPage extends Page {
 	private static final By editAccountLink = By.xpath("//a[text()='Edit Account']");
 	private static final By registerForAnAffiliateAccount = By.cssSelector("a[href$='affiliate/add']");
 	private static final By affiliateAccountCreationSuccessText = By.cssSelector("div.alert");
-	private static final By passwordChangesSuccessBanner = By.cssSelector("div.alert-success");
 	private static final By componentsHoverButton = By.cssSelector("li.dropdown:nth-of-type(3) a.dropdown-toggle");
 	public static final By monitorsLink = By.cssSelector(" ul li.dropdown:nth-of-type(3) li:nth-of-type(2) a");
 	private static final By cameraLink = By.cssSelector("div.navbar-collapse ul>li:nth-of-type(7) a");
 	private static final By addToReturnLink = By.xpath("(//a[text()='Returns']) [2]");
+	private static final By passwordChangesSuccessBanner = By.cssSelector("div.alert-success");
+	private static final By desktop = By.cssSelector("ul.nav>li:first-of-type>a");
+	private static final By showAllDesktop = By.xpath("//a[text()='Show All Desktops']");
 
 	public ProductReturnsPage clickaddToReturnLink() {
 		((ProxyDriver) wd).click(addToReturnLink);
@@ -39,9 +41,20 @@ public class MyAccountPage extends Page {
 		return new ContactPage(wd, true);
 	}
 
+	private void clickDesktop() {
+		((ProxyDriver) wd).click(desktop);
+	}
+
+	public DesktopPage showAllDesktop() {
+		clickDesktop();
+		((ProxyDriver) wd).click(showAllDesktop);
+		return new DesktopPage(wd, true);
+	}
+
 	public PurchaseGiftCertificatePage clickGiftCertificateLink() {
 		((ProxyDriver) wd).click(GiftCertificatesLink);
 		return new PurchaseGiftCertificatePage(wd, true);
+
 	}
 
 	public String getMyAccountText() {
