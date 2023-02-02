@@ -14,10 +14,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 
+	/*
+	 * This is a base class
+	 */
 
-/*
- * This is a base class 
- */
 	public static WebDriver driver;
 	public Browsers DEFAULT_BROWSER = Browsers.GOOGLE_CHROME;
 	public static WebdriverEvents events = new WebdriverEvents();
@@ -29,22 +29,20 @@ public class TestBase {
 		case GOOGLE_CHROME:
 			driver = new ProxyDriver(WebDriverManager.chromedriver().create());
 			break;
-
 		case EDGE:
 			driver = new ProxyDriver(WebDriverManager.edgedriver().create());
 			break;
-
 		case FIREFOX:
 			driver = new ProxyDriver(WebDriverManager.firefoxdriver().create());
 			break;
-
 		default:
 			System.out.println("Not a valid browser");
 			break;
 		}
+
 		/*
-		 * eventFiringWebDriver=new EventFiringWebDriver(driver);
-		 * eventFiringWebDriver.register(events); driver=eventFiringWebDriver;
+		 * eventFiringWebDriver = new EventFiringWebDriver(driver);
+		 * eventFiringWebDriver.register(events); driver = eventFiringWebDriver;
 		 */
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -67,11 +65,10 @@ public class TestBase {
 		} finally {
 			driver.quit();
 		}
-
 	}
-	
+
 	public Browsers getBrowser() {
-		//String browserName=System.getProperty(System.getProperty("browser"));
+		// String browserName=System.getProperty(System.getProperty("browser"));
 		return Browsers.getBrowserByName("chrome");
 	}
 

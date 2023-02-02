@@ -14,7 +14,12 @@ import org.openqa.selenium.TakesScreenshot;
 import com.naveenautomation.Base.TestBase;
 
 public class Utils extends TestBase {
-	/* This is util class */
+
+/*
+ * This is a utils class	
+ */
+
+
 	public static int getRandomInteger(int length) {
 		Random random = new Random();
 		return random.nextInt(length);

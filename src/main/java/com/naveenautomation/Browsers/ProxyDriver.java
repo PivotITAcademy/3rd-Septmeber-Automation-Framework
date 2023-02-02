@@ -31,7 +31,7 @@ public class ProxyDriver implements WebDriver, JavascriptExecutor, TakesScreensh
 	public void click(By locator) {
 		this.waitForElementToBeClickable(locator, 5).click();
 	}
-
+	
 	public void clear(By locator) {
 		this.waitForElementToBeVisible(locator, 5).clear();
 	}
