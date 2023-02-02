@@ -10,6 +10,10 @@ import com.naveenautomation.Utils.Log;
 import com.naveenautomation.Utils.Utils;
 
 public class CustomListener extends TestBase implements ITestListener {
+	
+	/*
+	 * This is a listener class
+	 */
 
 	final Logger logger = Log.getLoggerData(this.getClass().getName());
 	
