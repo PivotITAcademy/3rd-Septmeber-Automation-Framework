@@ -9,10 +9,11 @@ import com.naveenautomation.Base.TestBase;
 import com.naveenautomation.Pages.AccountLoginPage;
 import com.naveenautomation.Pages.MyAccountPage;
 import com.naveenautomation.Pages.ShoppingCartPage;
+import com.naveenautomation.Pages.ShoppingCartShippingModalWindowPage;
 
 public class ShoppingCartTest extends TestBase {
-	AccountLoginPage accountLoginPage;
-	MyAccountPage myAccountPage;
+	private AccountLoginPage accountLoginPage;
+	private MyAccountPage myAccountPage;
 	SoftAssert softAssert = new SoftAssert();
 
 	@BeforeMethod
@@ -25,10 +26,11 @@ public class ShoppingCartTest extends TestBase {
 	@Test
 	public void verifyUserAbleToApplyShippingAndTaxes() throws InterruptedException {
 		ShoppingCartPage shoppingCartPage = myAccountPage.clickShoppingCartLink();
-		shoppingCartPage.clickestimateShippingAndTaxesLink();
-		shoppingCartPage.getShippingandTaxesQuote("India", "Delhi", "110001");
-		softAssert.assertEquals(shoppingCartPage.getTextAlert(), "Success: Your shipping estimate has been applied!\n×",
-				"Shipping Estimate not applied");
+		ShoppingCartShippingModalWindowPage shoppingCartShippingModalWindowPage = shoppingCartPage
+				.getShippingandTaxesQuote("India", "Delhi", "110001");
+		ShoppingCartPage shoppingCartPageReloaded = shoppingCartShippingModalWindowPage.applyShippingRates();
+		softAssert.assertEquals(shoppingCartPageReloaded.getTextAlert(),
+				"Success: Your shipping estimate has been applied!\n×", "Shipping Estimate not applied");
 		softAssert.assertAll();
 
 	}

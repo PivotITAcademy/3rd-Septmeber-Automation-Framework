@@ -19,10 +19,9 @@ public class ShoppingCartPage extends Page {
 	private static final By postalCodeInputBox = By.cssSelector("input#input-postcode");
 	private static final By getQuotesBtn = By.cssSelector("button#button-quote");
 	private static final By shippingRateRadioBtn = By.cssSelector("input[type='radio']");
-	private static final By applyShippingBtn = By.cssSelector("input#button-shipping");
 	private static final By alertBanner = By.cssSelector("div.alert");
 
-	public void clickestimateShippingAndTaxesLink() {
+	public void expandEstimateShippingTaxes() {
 		((ProxyDriver) wd).click(estimateShippingAndTaxesLink);
 	}
 
@@ -47,14 +46,10 @@ public class ShoppingCartPage extends Page {
 		((ProxyDriver) wd).sendKeys(postalCodeInputBox, pinCode);
 	}
 
-	private void clickGetQuotesBtn() {
+	private ShoppingCartShippingModalWindowPage switchToModalShippingWindow() {
 		((ProxyDriver) wd).click(getQuotesBtn);
-	}
-
-	private void switchToPopUpWindow() {
-		((ProxyDriver) wd).switchToNewTab(applyShippingBtn);
-		((ProxyDriver) wd).click(shippingRateRadioBtn);
-		((ProxyDriver) wd).click(applyShippingBtn);
+		((ProxyDriver) wd).switchToNewTab(shippingRateRadioBtn);
+		return new ShoppingCartShippingModalWindowPage(wd, true);
 
 	}
 
@@ -63,12 +58,14 @@ public class ShoppingCartPage extends Page {
 
 	}
 
-	public void getShippingandTaxesQuote(String countryValue, String regionValue, String pinCode) {
+	public ShoppingCartShippingModalWindowPage getShippingandTaxesQuote(String countryValue, String regionValue,
+			String pinCode) {
+		expandEstimateShippingTaxes();
 		selectCountryFromDropDown(countryValue);
 		selectRegionFromDropDown(regionValue);
 		inputPostalCode(pinCode);
-		clickGetQuotesBtn();
-		switchToPopUpWindow();
+		switchToModalShippingWindow();
+		return new ShoppingCartShippingModalWindowPage(wd, true);
 	}
 
 	@Override
