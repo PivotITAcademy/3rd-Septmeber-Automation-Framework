@@ -12,9 +12,9 @@ import com.naveenautomation.Pages.SpecialsPage;
 
 public class SpecialsPageTest extends TestBase {
 
-	SoftAssert softAssert = new SoftAssert();
-	AccountLoginPage accountLoginPage;
-	MyAccountPage myAccountPage;
+	private SoftAssert softAssert = new SoftAssert();
+	private AccountLoginPage accountLoginPage;
+	private MyAccountPage myAccountPage;
 
 	@BeforeMethod
 	public void setUp() {
@@ -29,7 +29,10 @@ public class SpecialsPageTest extends TestBase {
 		SpecialsPage specialPage = myAccountPage.clickOnSpeacialInExtras();
 		specialPage.clickOnAddToWishlist();
 
-		softAssert.assertEquals("Success: You have added Apple Cinema 30\" to your wish list!\n" + "×",
+		// softAssert.assertEquals("Success: You have added Apple Cinema 30\" to your
+		// wish list!\n" + "×";
+
+		softAssert.assertEquals("Success: You have added Apple Cinema 30\" to your wish list!\n",
 				specialPage.getSuccessBannerText(), "Invalid Banner Text");
 		softAssert.assertAll();
 	}

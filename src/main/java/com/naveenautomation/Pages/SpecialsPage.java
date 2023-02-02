@@ -24,7 +24,8 @@ public class SpecialsPage extends Page {
 	}
 
 	public String getSuccessBannerText() {
-		return ((ProxyDriver) wd).getText(AddToWishListSuccessBanner, 10);
+		return ((ProxyDriver) wd).getText(AddToWishListSuccessBanner, 10).replace("×", "");
+
 	}
 
 	@Override
