@@ -52,7 +52,11 @@ public class MyWishListPage extends Page{
 
 	public enum WishList {
 
-		IMAGE("Image"), PRODUCTNAME("Product Name"), MODEL("Model"), STOCK("Stock"), UNITPRICE("Unit Price"),
+		IMAGE("Image"),
+		PRODUCTNAME("Product Name"),
+		MODEL("Model"),
+		STOCK("Stock"),
+		UNITPRICE("Unit Price"),
 		ACTION("Action");
 
 		String name;

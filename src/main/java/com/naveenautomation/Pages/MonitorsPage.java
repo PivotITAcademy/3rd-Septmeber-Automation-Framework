@@ -7,23 +7,13 @@ import com.naveenautomation.Browsers.ProxyDriver;
 
 public class MonitorsPage extends Page {
 
-	String pageUrl = "/opencart/index.php?route=product/category&path=25_28";
-
-	private String getPageUrlAfterVerification(String pageUrl) {
-		if (pageUrl.contains("/category&path=")) {
-			return pageUrl;
-		}
-		return null;
-	}
-
-	private final String PAGE_URL = getPageUrlAfterVerification(pageUrl);
+	private final String PAGE_URL = "/opencart/index.php?route=product/category";
 
 	public MonitorsPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
 	}
 
 	public static final By firstProductAddToWishlistButton = By.cssSelector("button[onclick*=\"wishlist.add('42')\"]");
-
 	public static final By wishListLink = By.cssSelector("ul.list-inline>li:nth-of-type(3) span");
 
 	public void addToWishListFirstMonitor() {

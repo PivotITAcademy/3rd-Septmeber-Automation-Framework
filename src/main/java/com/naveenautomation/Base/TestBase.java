@@ -4,9 +4,11 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.naveenautomation.Browsers.Browsers;
 import com.naveenautomation.Browsers.ProxyDriver;
+import com.naveenautomation.Listeners.WebdriverEvents;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -18,6 +20,8 @@ public class TestBase {
 
 	public static WebDriver driver;
 	public Browsers DEFAULT_BROWSER = Browsers.GOOGLE_CHROME;
+	public static WebdriverEvents events = new WebdriverEvents();
+	public EventFiringWebDriver eventFiringWebDriver;
 
 	public void launchBrowser() {
 
@@ -35,6 +39,11 @@ public class TestBase {
 			System.out.println("Not a valid browser");
 			break;
 		}
+
+		/*
+		 * eventFiringWebDriver = new EventFiringWebDriver(driver);
+		 * eventFiringWebDriver.register(events); driver = eventFiringWebDriver;
+		 */
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
